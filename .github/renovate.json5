@@ -1,3 +1,18 @@
 {
   extends: ['@whtsky'],
+  packageRules: [
+    {
+      extends: ['monorepo:jest'],
+      matchPackageNames: ['ts-jest'],
+      matchPackagePrefixes: ['@types/jest'],
+      groupName: 'jest',
+      automerge: true
+    },
+    {
+      matchPackagePrefixes: ['@rollup', 'rollup-'],
+      matchUpdateTypes: ['major', 'minor', 'patch', 'pin', 'digest'],
+      matchPackageNames: ['rollup'],
+      groupName: 'rollup',
+    },
+  ],
 }
